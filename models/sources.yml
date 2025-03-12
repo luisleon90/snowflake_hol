@@ -52,12 +52,8 @@ sources:
             description: "Closing rate"
 
   - name: trading_data
-    database: |
-      {%- if  target.name == "dev" -%} dbt_hol_2025_dev
-      {%- elif target.name == "prod"  -%} dbt_hol_2025_prod
-      {%- else -%} invalid_database
-      {%- endif -%}
-    schema: public
+    database: analytics
+    schema: dbt_lleon_hol
     tables:
       - name: trading_books
         description: "Trading book data"
@@ -87,12 +83,8 @@ sources:
             description: "Trade notes and comments"
 
   - name: portfolio_data
-    database: |
-      {%- if  target.name == "dev" -%} dbt_hol_2025_dev
-      {%- elif target.name == "prod"  -%} dbt_hol_2025_prod
-      {%- else -%} invalid_database
-      {%- endif -%}
-    schema: public
+    database: analytics
+    schema: dbt_lleon_hol
     tables:
       - name: weights_table
         description: "Portfolio target allocations by region and desk"
